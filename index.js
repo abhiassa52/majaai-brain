@@ -18,7 +18,13 @@ const modules = [
 ];
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Welcome");
